@@ -8,7 +8,7 @@ int main()
 	string input;
 	// Opening the file
 	ifstream file;
-	file.open("11.txt");
+	file.open("12.txt");
 	getline(file, input);
 
 	// length of input
