@@ -20,11 +20,12 @@ int main()
 	// Opening the file
 	ifstream file;
 	file.open("9.txt");
+	// take input line and divided into a set of string .
 	string input;
 	getline(cin, input);
+
 	int len = input.size();
 	string str = "";
-
 	for(int i=0; i<len; i++){
 		if(input[i]!=' '){
 			str = str+input[i];
@@ -37,6 +38,11 @@ int main()
 	if(str.size()){
 		inputV.push_back(str);
 	}
+
+	// for(int i=0; i<inputV.size(); i++){
+	// 	cout << inputV[i] << endl;
+	// }
+	
 	int countt = inputV.size();
 	str = "";
 	
@@ -48,6 +54,7 @@ int main()
 	while (file >> str) {
 		check = chomoskyNormalForm(str);
 		if(check){
+		//	cout << ans <<" 1"<< endl;
 			v.push_back(ans);
 			if(ii>=countt){
 				break;
@@ -56,6 +63,11 @@ int main()
 	}
 
 	int length = v.size();
+	// cout << length << endl << countt << endl;
+
+	// for(int i=0; i<length; i++){
+	// 	cout << v[i] << endl;
+	// }
 
 	if(countt == 2 && length == 2 && ( (v[0]=="PN" || v[0]=="P") && (v[1]=="V") )){
 		cout << "Valid" << endl;
