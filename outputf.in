@@ -1,1 +1,14 @@
-Output: VALID
+Grammer:
+S -> ABC
+S -> ghi
+S -> jke
+A -> a
+A -> b
+A -> c
+B -> b
+D -> d
+
+First[S] => a b c g j 
+First[A] => a b c 
+First[B] => b 
+First[D] => d 

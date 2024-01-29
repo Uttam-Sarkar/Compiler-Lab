@@ -1,0 +1,8 @@
+S = ABC
+S = ghi
+S = jke
+A = a
+A = b
+A = c
+B = b
+D = d
