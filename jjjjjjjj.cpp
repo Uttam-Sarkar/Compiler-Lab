@@ -1,12 +1,12 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<pair<char, string>> grammer;
-map<char, set<char>> First;
+vector<pair<string, string>> grammer;
+map<string, set<char>> First;
 map<char, set<char>> Follow;
 
 void findFirst(){
 	for (int i = grammer.size()-1; i >= 0; i--){
-		char leftPart = grammer[i].first;
+		string leftPart = grammer[i].first;
 		for(int j=0; j<grammer.size(); j++){
 			if(grammer[j].first == leftPart){
 				string rightPart = grammer[j].second;
@@ -15,7 +15,8 @@ void findFirst(){
 				}else{
 					int vPos = 0;
 					uttam:
-					for (auto& ch : First[rightPart[vPos]]) {
+					string rightPartS = rightPart.substr(vPos, vPos + 1);// = rightPart[0];
+					for (auto& ch : First[rightPartS]) {
 						if(ch == '~'){
 							vPos++;
 							goto uttam;
@@ -41,27 +42,33 @@ void printFirst(){
 }
 
 void findFollow(){
-	Follow[grammer[0].first].insert('$');
-	for(int i=0; i<grammer.size(); i++){		
+	Follow[grammer[0].first[0]].insert('$');
+	for(int i=0; i<grammer.size(); i++){	
+	cout << "i"<< i <<" ";	
 		if(i!=0 && grammer[i].first == grammer[i-1].first){
 			continue;
 		}
 
-		char followValue = grammer[i].first;
+		char followValue = grammer[i].first[0];
 		for(int j=0; j<grammer.size(); j++){
-			char leftPart = grammer[j].first;
+			cout << "j"<< j <<" ";
 			string rightPart =  grammer[j].second;
+			char leftPart = grammer[j].first[0];
 
 			for (int k = 0; k < rightPart.size(); k++)
 			{
+				cout << "k"<< k <<" ";
 				if(rightPart[k] == followValue){
 					if(k == rightPart.size()-1 ){
 						// left side's Follow will kept
 						for (auto& ch : Follow[leftPart]) {
+							// string s;
+							// s[0] = followValue; 
 	 						Follow[followValue].insert(ch);
 						}
 					}else if(rightPart[k+1] >= 'A' && rightPart[k+1] <= 'Z'){
-						for (auto& ch : First[rightPart[k+1]]) {
+						string p ="" + rightPart[k+1];
+						for (auto& ch : First[p]) {
 							if(ch == '~'){
 								//epcilon will not exist in Follow
 								continue;
@@ -73,9 +80,10 @@ void findFollow(){
 						Follow[followValue].insert(rightPart[k+1]);
 					}
 				}
-				
-			}
+				cout<< endl;
+			}cout << endl;
 		}
+		cout << endl;
 	}
 
 }
@@ -85,7 +93,7 @@ void printFollow(){
 			continue;
 		}
 		cout << "Follow[" << grammer[i].first << "] => "; 
-		for (auto& str : Follow[grammer[i].first]) {
+		for (auto& str : Follow[grammer[i].first[0]]) {
 	 		cout << str << " ";
 		}
 		 cout << endl;
@@ -101,7 +109,7 @@ int main()
 
 	string str;
 	bool check = false;
-	char leftSide =  'a';
+	string leftSide =  "";
 	// grammer map taken as global variable 
 // assign left and right side of grammer into map
 	while (file >> str) {
@@ -113,31 +121,56 @@ int main()
 			check = true;
 		}
 		else{
-
-			leftSide = str[0];
+			leftSide = str;
 		}
 	}
 	cout << "Grammer:" << endl;
 	for (int i = 0; i < grammer.size(); ++i){
-		// print Left side
-		if(i==0 || grammer[i].first != grammer[i-1].first){
-			cout << grammer[i].first << " -> ";
-		}
-
-		//Print Right side
-		if(i != (grammer.size()-1) && grammer[i].first == grammer[i+1].first){
-			cout << grammer[i].second << " | " ;
-			continue;
-		}
-		cout<< grammer[i].second << endl;
+		cout << grammer[i].first << " -> " << grammer[i].second << endl;
 	}
 // end of asign grammer
 cout << endl;
 findFirst();
 printFirst();
 cout << endl;
-// give find follow two time otherwise it can't give write ans
-findFollow();
 findFollow();
 printFollow();
 }
+
+
+// void findFirst(){
+// 	for (int i = grammer.size()-1; i >= 0; i--){
+// 		string leftPart = grammer[i].first;
+// 		for(int j=0; j<grammer.size(); j++){
+// 			if(grammer[j].first == leftPart){
+// 				string rightPart = grammer[j].second;
+// 				if(!(rightPart[0] >= 'A' && rightPart[0] <= 'Z') || rightPart[0] == '~'){
+// 					First[leftPart].insert(rightPart[0]);
+// 				}else{
+// 					int vPos = 0;
+// 					uttam:
+// 					string rightPartS = rightPart.substr(vPos, vPos + 1);// = rightPart[0];
+// 					for (auto& ch : First[rightPartS]) {
+// 						if(ch == '~'){
+// 							vPos++;
+// 							goto uttam;
+// 						}
+// 	 					First[leftPart].insert(ch);
+// 					}
+// 				}				
+// 			}
+// 		}
+// 	}
+// }
+// void printFirst(){
+// 	for(int i=0; i<grammer.size(); i++){
+// 		if(i!=0 && grammer[i].first == grammer[i-1].first){
+// 			continue;
+// 		}
+// 		cout << "First[" << grammer[i].first << "] => "; 
+// 		for (auto& str : First[grammer[i].first]) {
+// 	 		cout << str << " ";
+// 		}
+// 		 cout << endl;
+// 	}
+// }

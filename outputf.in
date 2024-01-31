@@ -1,14 +1,18 @@
 Grammer:
-S -> ABC
-S -> ghi
-S -> jke
-A -> a
-A -> b
-A -> c
-B -> b
-D -> d
+E -> TP
+P -> *TP | ~
+T -> FU
+U -> ~ | +FU
+F -> a | (E
 
-First[S] => a b c g j 
-First[A] => a b c 
-First[B] => b 
-First[D] => d 
+First[E] => ( a 
+First[P] => * ~ 
+First[T] => ( a 
+First[U] => + ~ 
+First[F] => ( a 
+
+Follow[E] => $ + 
+Follow[P] => $ + 
+Follow[T] => * 
+Follow[U] => * 
+Follow[F] => + 

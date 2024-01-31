@@ -1,8 +1,8 @@
-S = ABC
-S = ghi
-S = jke
-A = a
-A = b
-A = c
-B = b
-D = d
+E = TP
+P = *TP
+P = ~
+T = FU
+U = ~
+U = +FU
+F = a
+F = (E
