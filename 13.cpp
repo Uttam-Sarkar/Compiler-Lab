@@ -55,22 +55,26 @@ void findFollow(){
 			for (int k = 0; k < rightPart.size(); k++)
 			{
 				if(rightPart[k] == followValue){
-					if(k == rightPart.size()-1 ){
+					
+					int vPos = k;
+					uttam2:
+
+					if(vPos == rightPart.size()-1 ){
 						// left side's Follow will kept
 						for (auto& ch : Follow[leftPart]) {
 	 						Follow[followValue].insert(ch);
 						}
-					}else if(rightPart[k+1] >= 'A' && rightPart[k+1] <= 'Z'){
-						for (auto& ch : First[rightPart[k+1]]) {
+					}else if(rightPart[vPos+1] >= 'A' && rightPart[vPos+1] <= 'Z'){
+						for (auto& ch : First[rightPart[vPos+1]]) {
 							if(ch == '~'){
-								//epcilon will not exist in Follow
-								continue;
+								vPos++;
+								goto uttam2;
 							}
 	 						Follow[followValue].insert(ch);
 						}
 					}
 					else{
-						Follow[followValue].insert(rightPart[k+1]);
+						Follow[followValue].insert(rightPart[vPos+1]);
 					}
 				}
 				
@@ -136,8 +140,8 @@ cout << endl;
 findFirst();
 printFirst();
 cout << endl;
-// give find follow two time otherwise it can't give write ans
-findFollow();
+// give find follow two time otherwise sometimes it can't give right ans
+//findFollow();
 findFollow();
 printFollow();
 }

@@ -1,18 +1,146 @@
 Grammer:
 E -> TP
-P -> *TP | ~
+P -> +TP
+P -> ~
 T -> FU
-U -> ~ | +FU
-F -> a | (E
+U -> ~
+U -> *FU
+F -> a
+F -> (E)
 
 First[E] => ( a 
-First[P] => * ~ 
+First[P] => + ~ 
 First[T] => ( a 
-First[U] => + ~ 
+First[U] => * ~ 
 First[F] => ( a 
 
-Follow[E] => $ + 
-Follow[P] => $ + 
-Follow[T] => * 
-Follow[U] => * 
-Follow[F] => + 
+i0 j0 k0 
+k1 
+
+j1 k0 
+k1 
+k2 
+
+j2 k0 
+
+j3 k0 
+k1 
+
+j4 k0 
+
+j5 k0 
+k1 
+k2 
+
+j6 k0 
+
+j7 k0 
+k1 
+k2 
+
+
+i1 j0 k0 
+k1 
+
+j1 k0 
+k1 
+k2 
+
+j2 k0 
+
+j3 k0 
+k1 
+
+j4 k0 
+
+j5 k0 
+k1 
+k2 
+
+j6 k0 
+
+j7 k0 
+k1 
+k2 
+
+
+i2 i3 j0 k0 
+k1 
+
+j1 k0 
+k1 
+k2 
+
+j2 k0 
+
+j3 k0 
+k1 
+
+j4 k0 
+
+j5 k0 
+k1 
+k2 
+
+j6 k0 
+
+j7 k0 
+k1 
+k2 
+
+
+i4 j0 k0 
+k1 
+
+j1 k0 
+k1 
+k2 
+
+j2 k0 
+
+j3 k0 
+k1 
+
+j4 k0 
+
+j5 k0 
+k1 
+k2 
+
+j6 k0 
+
+j7 k0 
+k1 
+k2 
+
+
+i5 i6 j0 k0 
+k1 
+
+j1 k0 
+k1 
+k2 
+
+j2 k0 
+
+j3 k0 
+k1 
+
+j4 k0 
+
+j5 k0 
+k1 
+k2 
+
+j6 k0 
+
+j7 k0 
+k1 
+k2 
+
+
+i7 Follow[E] => $ ) 
+Follow[P] => $ ) 
+Follow[T] => 
+Follow[U] => 
+Follow[F] => 

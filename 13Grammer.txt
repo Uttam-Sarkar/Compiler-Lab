@@ -1,8 +1,8 @@
 E = TP
-P = *TP
+P = +TP
 P = ~
 T = FU
 U = ~
-U = +FU
+U = *FU
 F = a
-F = (E
+F = (E)
