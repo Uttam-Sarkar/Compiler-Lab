@@ -1,0 +1,153 @@
+----------------------Router 0-------------------------
+Router>enable
+Router#confi
+Router#configure termmi
+Router#configure termi
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#inter
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 192.168.10.1 255.255.255.0
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#
+Router#conf
+Router#configure termi
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#inte
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 192.168.10.1 255.255.255.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#inter
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/1
+Router(config-if)#ip address 10.0.0.1 255.0.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+
+Router(config-if)#exit
+Router(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+
+
+
+
+
+
+
+
+
+Router con0 is now available
+
+
+Press RETURN to get started.
+Router>enable
+Router#conf
+Router#configure ter
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#router rip
+Router(config-router)#network 192.168.10.0
+Router(config-router)#network 10.0.0.0
+Router(config-router)#
+  -------------------------Router 1------------------
+Router>enable
+Router#confi
+Router#configure ter
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#inter
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/1
+Router(config-if)#ip address 10.0.0.2 255.0.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/1, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/1, changed state to up
+
+Router(config-if)#exit
+Router(config)#inte
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 192.168.20.1 255.255.255.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#inter
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/2
+Router(config-if)#ip address 11.0.0.1 255.0.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to up
+exit
+Router(config)#
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed state to up
+
+Router(config)#router rip
+Router(config-router)#network 10.0.0.0
+Router(config-router)#network 11.0.0.0
+Router(config-router)#network 192.168.20.0
+Router(config-router)#
+
+---------------------Router 2-------------------
+Router>ena
+Router>enable 
+Router#conf
+Router#configure ter
+Router#configure terminal 
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#inter
+Router(config)#interface giga
+Router(config)#interface gigabitEthernet 0/2
+Router(config-if)#ip address 11.0.0.2 255.0.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/2, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/2, changed state to up
+
+Router(config-if)#exit
+Router(config)#inter
+Router(config)#interface gig
+Router(config)#interface gigabitEthernet 0/0
+Router(config-if)#ip address 192.168.30.1 255.255.255.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface GigabitEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface GigabitEthernet0/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#router rip
+Router(config-router)#network 11.0.0.0
+Router(config-router)#network 192.168.30.0
+Router(config-router)#
